@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ShoppingOnline.Models.Items>
+
+@{ ViewData["Brand"] = "Home"; }
+@{ Layout = "_Layout2"; }
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        <a asp-action="AddItem" asp-route-id="@item.Id" type="button" class="btn btn-warning">Click For Book A Item</a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ItemName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Brand)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Size)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+</tr>}
+    </tbody>
+</table>
